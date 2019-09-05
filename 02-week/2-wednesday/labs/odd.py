@@ -1,0 +1,1 @@
+from wedfuncdgr8ninja.py import is_even
