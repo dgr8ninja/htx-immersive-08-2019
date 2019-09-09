@@ -1,5 +1,3 @@
-# Write a function move that accepts three arguments:
-
 #     board a 2-dimensional array that represents a 3x3 tic-tac-toe board
 
 #     location a 2-item tuple that specifies an cell on the board
@@ -15,12 +13,11 @@
 #     The location is invalid
 #     The player String is something other than "X" or "Y"
 
-import random
+def ttoboard(board):
 
-def gameboard(board):
-    
+    print(board[1])
     print('   |   |')
-    print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
+    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
     print('   |   |')
     print('-----------')
     print('   |   |')
@@ -28,18 +25,18 @@ def gameboard(board):
     print('   |   |')
     print('-----------')
     print('   |   |')
-    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
+    print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
     print('   |   |')
-#getting input from player
+
 def player_input():
-    marker = ' '
-    while not (marker == 'X' or marker == 'O'):
-        marker = input('Choose O or X to play!')
+    marker = ''
+    while not (marker == 'O' or marker == 'X'):
+        marker = input('Please choose X or O: ')
     if marker == 'X':
-        return ('X','O')
+        return('X', 'O')
     else:
-        return ('O','X')
-#place marker on borard
+        return('O', 'X')
+
 def place_marker(board,marker,postion):
     board[position] = marker
 #Checking win or not 
@@ -52,14 +49,8 @@ def win_check (board,mark):
     (board[9] == mark and board[6] == mark and board[3] == mark) or # down the right side
     (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
     (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
-# who first to go
 
-def choose_first():
-    rand_num = random.randint(0,1)
-    if rand_num == 0:
-        return 'Player 1'
-    else:
-        return 'Player 2'
+
 
 # checking space is free or not
 def check_space(board,position):
@@ -70,8 +61,9 @@ def full_board_check (board):
         if check_space(board,i):
             return False
     return True
-
-
-player_input()
-
-
+#player choice
+def player_choice (board):
+    position = ' '
+    while position not in '1 2 3 4 5 6 7 8 9'.split() or not check_space(board, int(position)):
+        position = input('Choose number input 1-9')
+    return int(position)

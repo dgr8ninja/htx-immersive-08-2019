@@ -1,108 +1,116 @@
-# initialise the game board
-gameboard = [(['.']*3) for i in range(3)]
+#creating display board 
+import random
 
-# variables for input and turn count
-row_col = [0]
-turn = 1
+def display_board(board):
 
-# checks that the input is valid 
-# - that it is in the format "row,col"
-# - that the position is free
-def input_valid(values):
-	# input has only two values
-    if len(values) != 2:
-        print ("Input must be two numbers in format row,col e.g.  1,2 ")
-        return 0
-    # input is a number between 1 and 3 (inclusive)
-    try:
-        if (1 <= int(values[0]) <= 3) and (1 <= int(values[1]) <= 3):
-            # checks if the position on the board is alreay filled
-            if gameboard[int(values[0])-1][int(values[1])-1] != '.':
-                print ("Position on board already taken.")
-                return 0
-            return 1
-        else:
-            print ("Input values must be numbers between 1 and 3 (inclusive)")
-            return 0
-    except ValueError:
-        print ("Input values must be numbers between 1 and 3 (inclusive)")
-        return 0
+    print('   |   |')
+    print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
+    print('   |   |')
+    print('-----------')
+    print('   |   |')
+    print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
+    print('   |   |')
+    print('-----------')
+    print('   |   |')
+    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
+    print('   |   |')
+#getting input from player
+def player_input():
+    marker = ' '
+    while not (marker == 'X' or marker == 'O'):
+        marker = input('Choose O or X to play!').upper()
+    if marker == 'X':
+        return ('X','O')
+    else:
+        return ('O','X')
+#place marker on borard
+def place_marker(board,marker,postion):
+    board[position] = marker
+#Checking win or not 
+def win_check (board,mark):
+    return ((board[7] == mark and board[8] == mark and board[9] == mark) or # across the top
+    (board[4] == mark and board[5] == mark and board[6] == mark) or # across the middle
+    (board[1] == mark and board[2] == mark and board[3] == mark) or # across the bottom
+    (board[7] == mark and board[4] == mark and board[1] == mark) or # down the middle
+    (board[8] == mark and board[5] == mark and board[2] == mark) or # down the middle
+    (board[9] == mark and board[6] == mark and board[3] == mark) or # down the right side
+    (board[7] == mark and board[5] == mark and board[3] == mark) or # diagonal
+    (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
+# who first to go
 
+def choose_first():
+    if random.randint(0,1) == 0:
+        return 'Player 1'
+    else:
+        return 'Player 2'
 
-# draw the board
-def draw_board(values, player):
-    # changes the value to X or O
-    gameboard[int(values[0])-1][int(values[1])-1]=player
+# checking space is free or not
+def check_space(board,position):
+    return board[position] == ' '
+#full board check 
+def full_board_check (board):
+    for i in range (1,10):
+        if check_space(board,i):
+            return False
+    return True
+#player choice
+def player_choice (board):
+    position = ' '
+    while position not in '1 2 3 4 5 6 7 8 9'.split() or not check_space(board, int(position)):
+        position = input('Choose number input 1-9')
+    return int(position)
+#asking replay or not 
+def replay():
 
-    # print the gameboard
-    for row in gameboard:
-	print row
+    return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
+print('Welcome to Tic Tac Toe Game!')
 
-# calculate if game is over (no more '.' or has winner)
-def game_over():
-    searcht = '.'
-    
-    # check win by row
-    for i in range(3):
-        if len(set(gameboard[i])) == 1:
-            if gameboard[i][1] == '.':
-                continue
-            elif gameboard[i][1] == 'X':
-                print ("Game over - Player 1 wins")
-            #elif gameboard[i][1] == 'O':
+while True:
+    # Reset the board
+    theBoard = [' '] * 10
+    player1_marker, player2_marker = player_input()
+    turn = choose_first()
+    print(turn + ' will go first.')
+    game_on = True
+
+    while game_on:
+        if turn == 'Player 1':
+            # Player1's turn.
+
+            display_board(theBoard)
+            position = player_choice(theBoard)
+            place_marker(theBoard, player1_marker, position)
+
+            if win_check(theBoard, player1_marker):
+                display_board(theBoard)
+                print('Congratulations! You have won the game!')
+                game_on = False
             else:
-                print ("Game over - Player 2 wins")
-            return 1
+                if full_board_check(theBoard):
+                    display_board(theBoard)
+                    print('The game is a draw!')
+                    break
+                else:
+                    turn = 'Player 2'
 
-    # check win by column
-    for i in range(3):
-        if gameboard[0][i] == gameboard[1][i] == gameboard[2][i]:
-            if gameboard[0][i] == '.':
-                continue
-            elif gameboard[0][i] == 'X':
-                print ("Game over - Player 1 wins")
+        else:
+            # Player2's turn.
+
+            display_board(theBoard)
+            position = player_choice(theBoard)
+            place_marker(theBoard, player2_marker, position)
+
+            if win_check(theBoard, player2_marker):
+                display_board(theBoard)
+                print('Player 2 has won!')
+                game_on = False
             else:
-                print ("Game over - Player 2 wins")
-            return i
+                if full_board_check(theBoard):
+                    display_board(theBoard)
+                    print('The game is a tie!')
+                    break
+                else:
+                    turn = 'Player 1'
 
-    # check win by diagonal
-    if (gameboard[0][0] == gameboard[1][1] == gameboard[2][2]) or (gameboard[0][2] == gameboard[1][1] == gameboard[2][0]): 
-        if gameboard[1][1] == 'X':
-            print ("Game over - Player 1 wins")
-        elif gameboard[1][1] == 'O':
-            print ("Game over - Player 2 wins")
-        else:
-            return 0
-        return 1
-
-    # check board is full
-    for sublist in gameboard:
-        if searcht in sublist:
-            return 0
-
-    print ("Game over - the board is filled")
-    return 1
-
-
-
-
-# main function that runs the game while board is not full
-while not game_over():
-    piece = '.'
-
-    # Player input - checks for input correctness
-    while not input_valid(row_col):
-        player = turn % 2
-        if player == 0:
-         	player = 2
-          	piece = 'O'
-        else:
-            piece = 'X'
-        p1 = input('Player ' + str(player) +' input: ')
-        row_col = p1.split(",")
-
-    draw_board(row_col, piece)
-
-    row_col = [0]
-    turn += 1
-
+    if not replay():
+        break
