@@ -1,3 +1,9 @@
 {
+<<<<<<< HEAD
     "python.formatting.provider": "yapf"
+=======
+  "cSpell.words": [
+    "Flexbox"
+  ]
+>>>>>>> 5d7c92093e796b805f77a93e7bde419c01a58ed3
 }
