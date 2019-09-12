@@ -1,0 +1,19 @@
+.modal-dialog{
+
+display: flex;
+justify-content: center;
+
+}
+
+.modal-dialog{
+position: fixed;
+margin-left: 60vh;
+margin-top: 30vh;
+border-style: solid;
+border: color  grey;
+padding: 5%;
+background: grey;
+opacity: 0.5;
+filter: alpha(opacity=50); 
+border-radius: 45px;
+}
