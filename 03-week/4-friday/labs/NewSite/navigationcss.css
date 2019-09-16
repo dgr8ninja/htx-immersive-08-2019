@@ -165,14 +165,12 @@ background-color: rgba(255, 193, 7, 0.7);
     align-content: center;
 }
 .main-page{
-    background-image: url("homeback1.jpg");
-    
-
-
-  /* Full height */
-  height: 100%;
+    background-image: url("viethome1.jpeg");
+	
+	height: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+	background-size: cover;
+	margin-bottom: 1000px;
 }
 
 #map{
@@ -184,5 +182,48 @@ justify-content: left;
 #mapid{
 
 height: 100vh;
+
+}
+.main-card{
+
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+.front-card{
+
+	margin-top: 20px;
+	margin-bottom: 300px;
+	background-color: rgb(10, 236, 10);
+	opacity: 0.5;
+	padding: 370px;
+	position: fixed;
+
+}
+.front-card{
+
+display: flex;
+justify-content: center;
+align-content: flex-end;
+
+}
+.main-button{
+
+	background-color: orange;
+	height: 50px;
+	position: absolute;
+	position: fixed;
+	margin-top: 735px;
+	
+
+}
+.address-main{
+
+position: absolute;
+position: center;
+margin-top: 300px;
+font-weight: bold;
+font-size: 20px;
+
 
 }
