@@ -1,0 +1,30 @@
+header{
+
+background-color: blue;
+padding: 25px;
+
+}
+
+.cta{
+
+    background-color: grey;
+
+}
+.post-footer{
+
+    background-color: orange;
+
+}
+ul{
+
+    display: flex;
+    justify-content: flex-end;
+    
+
+}
+ul{
+
+    color: black;
+    font-size: 25px;
+
+}

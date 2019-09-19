@@ -98,3 +98,9 @@ function buildPostFooter() {
 function getRandomNumber() {
   return Math.floor(Math.random() * 100);
 }
+
+
+
+
+
+
