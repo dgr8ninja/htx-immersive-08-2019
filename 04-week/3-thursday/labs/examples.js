@@ -1,16 +1,22 @@
-var res = [3, 4, -6, 0, -8, -1, 3, -6, 1, -8, -6, -1, 8, 10, 18];
-//get positive negative values
-var pos = res.filter(function(v) {
-    
-console.log(res);
-});
+var num = [-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
 
-var even_numbers = res.filter(item => item % 2 == 2);
-console.log(even_numbers);
+function positiveNumbers(arr){
+    return arr.filter(num =>  num > 0)
+}
+console.log(positiveNumbers(num));
 
+function evenNumbers(arr){
 
-var square_numbers = res.filter(item => item * item);
-console.log(square_numbers);
+    return arr.filter(num  => num %2 == 0);
+}
+console.log(evenNumbers(num));
+
+function squareNumbers(arr){
+
+    return arr.map(num => num * num);
+
+}
+console.log(squareNumbers(num));
 
 console.groupEnd();
 
@@ -20,32 +26,26 @@ var cities = [
     { name: 'Detroit', temperature: 48.0 },
     { name: 'New York', temperature: 80.0 } ];
 
-var cool_cities = cities.filter(temperature => temperature > 70.0);
-console.log(cool_cities);
+function arrayCities(arr){
 
-var name_cities = cities.filter(name => name);
-console.log(name_cities);
+    return arr.filter(x => x.temperature < 70);
 
+}
+console.log(arrayCities(cities));
 
-console.groupEnd();
+function nameCities(arr){
 
-var people = [ 'Dom', 'Lyn', 'Kirk', 'Autumn', 'Trista', 'Jesslyn', 'Kevin', 'John', 'Eli', 'Juan', 'Robert', 'Keyur', 'Jason', 'Che', 'Ben' ];
-var peoples_names = people.forEach(name =>name);
-console.log('Good Job! {{name}}');
+    return arr.map(x => x.name);
 
-var peoplesNames = people.sort(name => name);
-console.log(people);
-
-var peoplesName = people.sort(name => name);
-console.log(people);
-
-people.sort();
-console.log(people);
-
-console.groupEnd();
+}
+console.log(nameCities(cities));
 
 
-var arr = [[1, 3, 4],[2, 4, 6, 8],[3, 6] ];
-    
-var addIndexes = arr.addIndexes[0][1][2]
-console.log(addIndexes)
+var people = [ 'Dom', 'Lyn', 'Kirk', 'Autumn', 'Trista', 'Jesslyn', 'Kevin', 'John', 'Eli', 'Juan', 'Robert', 'Keyur', 'Jason', 'Che', 'Ben' ]; 
+
+function peoplesName(arr){
+
+    return arr.forEach(x => console.log(`Good Job, ${x}!`));
+}
+
+console.log(peoplesName);

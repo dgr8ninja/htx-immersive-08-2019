@@ -1,0 +1,28 @@
+#table{
+
+    background-color: green;
+    padding: 65px;
+    border-width: 5px;
+    border-color: brown;
+    border-style: solid;
+    border-radius: 20px;
+}
+#dealer-one{
+
+    padding: 50px;
+    background-color: lightgreen;
+    opacity: 0.8;
+}
+#player-two{
+
+    padding: 50px;
+    background-color: lightgreen;
+    opacity: 0.8;
+
+}
+.buttons{
+
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
