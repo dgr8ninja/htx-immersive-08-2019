@@ -12,12 +12,14 @@
     padding: 50px;
     background-color: lightgreen;
     opacity: 0.8;
+    width: 80vw;
 }
 #player-two{
 
     padding: 50px;
     background-color: lightgreen;
     opacity: 0.8;
+    width: 80vw;
 
 }
 .buttons{
