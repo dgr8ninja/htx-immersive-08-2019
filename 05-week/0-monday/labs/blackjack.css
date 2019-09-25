@@ -1,0 +1,57 @@
+#table{
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: blue;
+
+}
+#table{
+
+    background-color: brown;
+    height: 600px;
+    width: 1500px;
+    margin-top: 50px;
+    border-radius: 50px;
+    border: 2px solid green;
+    margin-left: 120px;
+    
+}
+
+#dealer-hand, #player-hand{
+
+padding: 20px;
+border-style: solid;
+border-width: 5px;
+border-color: darkblue;
+border-radius: 20px;
+
+}
+.buttons{
+
+    display: flex;
+    max-height: 200px;
+    align-items: flex-end;
+    align-content: flex-end;
+    justify-content: center;
+    min-width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+     
+}
+#messages{
+display: flex;
+height: 50%;
+justify-content: center;
+
+}
+h1{
+
+    display: flex;
+    justify-content: center;
+
+}
