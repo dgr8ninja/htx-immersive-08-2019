@@ -1,0 +1,54 @@
+#movies img, #movie img{
+    width:100%;
+  }
+  
+  @media(min-width:960px){
+    #movies .col-md-3 .well{
+      height: 390px;
+    }
+  
+    #movies .col-md-3 img{
+      height:240px;
+    }
+  }
+  .text-center{
+
+      color: rgb(255, 255, 255);
+      font-size: 50px;
+  
+  }
+  body{
+
+    background-color: black;
+
+  }
+  .form-control{
+
+  width: 80%;
+  padding: 20px 20px;
+  margin-left: 8px 0;
+  box-sizing: border-box;
+
+  }
+  .navbar{
+
+    border-bottom: 2px solid white;
+    width: 100%;
+    padding: 15px;
+  }
+.navbar-brand{
+
+  color: white;
+  font-size: 25px;
+
+}
+  .container{
+  display: flex;
+  border: 2px solid white;
+  margin-top: 10px;
+
+  }
+
+  .list-group-item {
+    color: white;
+  }
