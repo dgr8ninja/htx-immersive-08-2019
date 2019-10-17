@@ -36,24 +36,7 @@ app.get("/movies/:movie", function(req, res) {
   res.render("movie", { movie: filteredMovies[0] });
 });
 
-app.get("/about/us", function(req, res) {
-  res.render("about", { title: "Hey", message: "Hello there!" });
-});
 
-app.get("/dashboard", function(req, res) {
-  res.render("dashboard");
-});
-
-app.get("/login", function(req, res) {
-  res.render("login");
-});
-
-app.post("/login", function(req, res) {
-  console.log(req.body);
-  // check if user's email and password are valid
-  // save login state for browser
-  res.redirect("/dashboard");
-});
 
 app.listen(port, () => {
   console.log(`Port ${port} is running`);
